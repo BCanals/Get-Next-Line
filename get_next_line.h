@@ -6,14 +6,13 @@
 /*   By: bcanals- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 17:14:16 by bcanals-          #+#    #+#             */
-/*   Updated: 2024/07/20 17:17:49 by bcanals-         ###   ########.fr       */
+/*   Updated: 2024/07/21 15:21:02 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE.H
-# define GET_NEXT_LINE.H
+#ifndef GET_NEXT_LINE
+# define GET_NEXT_LINE
 
-# include <unistd.h>
-# include <stdlib.h>
+char	*get_next_line(int fd);
 
 # endif

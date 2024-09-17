@@ -6,7 +6,7 @@
 #    By: bizcru <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/28 15:47:58 by bizcru            #+#    #+#              #
-#    Updated: 2024/07/20 17:09:06 by bcanals-         ###   ########.fr        #
+#    Updated: 2024/07/21 15:48:10 by bizcru           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,10 +46,10 @@ fclean: clean #bclean
 
 re: fclean all
 
-
 #################################
 # TO BE DELETED BEFORE REVISION #
 #################################
+
 TEST = $(wildcard *test.c)
 
 TESTNAME = test
@@ -57,7 +57,8 @@ TESTNAME = test
 TESTO = $(TEST:.c=.o)
 
 test: $(TESTO) $(NAME)
-       gcc $(CFLAGS) -c $(TEST)
-       gcc $(TESTO) -L. -lft -o $(TESTNAME)
+	gcc $(CFLAGS) -c $(TEST)
+	gcc $(TESTO) -o $(TESTNAME) getnl.a
+
 cleant:
 	rm -f $(TESTO)
