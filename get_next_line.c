@@ -5,14 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bcanals- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/20 17:12:23 by bcanals-          #+#    #+#             */
-/*   Updated: 2024/07/20 17:13:56 by bcanals-         ###   ########.fr       */
+/*   Created: 2024/06/14 16:22:49 by bcanals-          #+#    #+#             */
+/*   Updated: 2024/09/14 13:27:23 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include <unistd.h>
+#include <stdlib.h>
+#include <fcntl.h>
 
-char *get_next_line(int fd)
+char	*get_next_line(int fd)
 {
+	static char	*buffer;
+	char	*line;
 
-	}
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+		return (NULL);
+	buffer = ft_read(fd);
+	if (!buffer)
+		return (NULL);
+	line = ft_line(buffer);
+	buffer = ft_next(buffer);
+	return (line);
+}
