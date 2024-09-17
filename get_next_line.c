@@ -6,20 +6,22 @@
 /*   By: bcanals- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 16:22:49 by bcanals-          #+#    #+#             */
-/*   Updated: 2024/09/17 11:49:18 by bizcru           ###   ########.fr       */
+/*   Updated: 2024/09/17 12:14:00 by bcanals-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
 #include <fcntl.h>
+#include <stdio.h>
 
 char	*ft_read(int fd, char *buffer)
 {
 	char	*read;
 
 	if (!buffer)
-		
+		ft_calloc(BUFFER_SIZE);
+	
 
 }
 
@@ -33,7 +35,8 @@ char	*get_next_line(int fd)
 	buffer = ft_read(fd);
 	if (!buffer)
 		return (NULL);
-	line = ft_line(buffer);
-	buffer = ft_next(buffer);
+	printf("so far so good")
+	//line = ft_line(buffer);
+	//buffer = ft_next(buffer);
 	return (line);
 }

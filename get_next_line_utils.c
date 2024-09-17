@@ -6,7 +6,7 @@
 /*   By: bizcru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 21:18:09 by bizcru            #+#    #+#             */
-/*   Updated: 2024/09/14 14:07:06 by bizcru           ###   ########.fr       */
+/*   Updated: 2024/09/17 12:14:04 by bcanals-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ void	*ft_memset(void *s, int c, size_t n)
 	return (s);
 }
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	*ft_calloc(size_t size)
 {
 	void	*rtrn;
 
-	rtrn = malloc(nmemb * size);
+	rtrn = malloc(size);
 	if (rtrn == NULL)
 		return (NULL);
 	ft_memset(s, 0, n);
