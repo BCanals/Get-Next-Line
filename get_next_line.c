@@ -6,13 +6,22 @@
 /*   By: bcanals- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 16:22:49 by bcanals-          #+#    #+#             */
-/*   Updated: 2024/09/14 13:27:23 by bizcru           ###   ########.fr       */
+/*   Updated: 2024/09/17 11:49:18 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
 #include <fcntl.h>
+
+char	*ft_read(int fd, char *buffer)
+{
+	char	*read;
+
+	if (!buffer)
+		
+
+}
 
 char	*get_next_line(int fd)
 {
