@@ -6,7 +6,7 @@
 /*   By: bizcru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 22:37:40 by bizcru            #+#    #+#             */
-/*   Updated: 2024/09/17 18:01:09 by bizcru           ###   ########.fr       */
+/*   Updated: 2024/09/24 14:59:30 by bcanals-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,6 @@ int	main(int argc, char **argv)
 	free(read_line);
 	read_line = get_next_line(fd);
 	printf("%s", read_line);
+	free(read_line);
 	close(fd);
 }
