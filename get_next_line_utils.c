@@ -6,28 +6,23 @@
 /*   By: bizcru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 21:18:09 by bizcru            #+#    #+#             */
-/*   Updated: 2024/09/17 13:29:09 by bcanals-         ###   ########.fr       */
+/*   Updated: 2024/09/24 19:26:01 by bcanals-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include <stdlib.h>
 #include <stddef.h>
 
 void	*ft_memcpy(char *dest, char *src, size_t n)
 {
-	char	*dest2;
-	char	*src2;
 	size_t	i;
 
 	if (!dest || !src)
 		return (dest);
 	i = 0;
-	dest2 = dest;
-	src2 = src;
 	while (i < n)
 	{
-		dest2[i] = src2[i];
+		dest[i] = src[i];
 		i++;
 	}
 	return (dest);
@@ -43,7 +38,7 @@ char	*ft_calloc(size_t size)
 		return (NULL);
 	i = 0;
 	while (i < size)
-		rtrn[i++] = 0;
+		rtrn[i++] = '\0';
 	return (rtrn);
 }
 
@@ -52,7 +47,7 @@ size_t	ft_strlen(const char *s)
 	int	i;
 
 	i = 0;
-	while (*s != 0)
+	while (*s != '\0')
 	{
 		i++;
 		s++;
@@ -74,9 +69,25 @@ char	*ft_strjoin(char *s1, char *s2)
 	if (rtrn == NULL)
 		return (NULL);
 	ft_memcpy(rtrn, s1, s1_len);
-	rtrn += s1_len;
-	ft_memcpy(rtrn, s2, s2_len);
-	rtrn -= s1_len;
+	ft_memcpy(rtrn + s1_len, s2, s2_len);
 	rtrn[size - 1] = '\0';
+	free(s1);
+	free(s2);
 	return (rtrn);
+}
+
+char	*ft_strchr(char *s, int c)
+{
+	char	*s2;
+	char	c2;
+
+	s2 = s;
+	c2 = c;
+	while (*s2)
+	{
+		if (*s2 == c2)
+			return (s2);
+		s2++;
+	}
+	return (NULL);
 }

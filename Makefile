@@ -6,13 +6,13 @@
 #    By: bizcru <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/28 15:47:58 by bizcru            #+#    #+#              #
-#    Updated: 2024/09/17 14:12:35 by bcanals-         ###   ########.fr        #
+#    Updated: 2024/09/24 18:10:16 by bcanals-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = getnl.a
 
-CFLAGS = -Wall -Wextra -Werror -D BUFFER_SIZE=108
+CFLAGS = -Wall -Wextra -Werror -D BUFFER_SIZE=20
 
 SRCS = get_next_line.c \
 		get_next_line_utils.c
@@ -62,3 +62,5 @@ test: $(TESTO) $(NAME)
 
 cleant:
 	rm -f $(TESTO)
+
+retest: fclean cleant test
