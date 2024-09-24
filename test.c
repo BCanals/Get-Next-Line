@@ -6,7 +6,7 @@
 /*   By: bizcru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 22:37:40 by bizcru            #+#    #+#             */
-/*   Updated: 2024/09/17 14:18:47 by bcanals-         ###   ########.fr       */
+/*   Updated: 2024/09/17 18:01:09 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,14 @@ int	main(int argc, char **argv)
 	}
 	printf("fd = %i\n", fd);
 	read_line = get_next_line(fd);
-	while (read_line)
+	if (!read_line)
 	{
-		if (!read_line)
-		{
-			printf("read_line not available");
-			return (0);
-		}
-		printf("%s", read_line);
-		free(read_line);
-		read_line = get_next_line(fd);
+		printf("read_line not available");
+		return (0);
 	}
+	printf("%s", read_line);
+	free(read_line);
+	read_line = get_next_line(fd);
+	printf("%s", read_line);
 	close(fd);
 }
