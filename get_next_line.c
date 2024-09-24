@@ -6,7 +6,7 @@
 /*   By: bcanals- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 16:22:49 by bcanals-          #+#    #+#             */
-/*   Updated: 2024/09/17 14:25:58 by bcanals-         ###   ########.fr       */
+/*   Updated: 2024/09/17 18:00:12 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,10 @@ char	*get_next_line(int fd)
 	buffer = ft_read(fd, buffer);
 	if (!buffer)
 		return (NULL);
-	printf("%s\n", buffer);
+	//printf("%s\n", buffer);
 	line = ft_line(buffer);
-	printf("%s\n", buffer);
-	printf("\n\nnext line:\n");
+	//printf("%s\n", buffer);
+	//printf("\n\nnext line:\n");
 	//buffer = ft_next(buffer);
 	return (line);
 }
