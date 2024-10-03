@@ -1,3 +1,0 @@
-88: gnl-> line
-buffer -> size x: contindra text fins a incloure un \n. segur que tindra 0 al final.
-line -> NULL si no hi ha res mes a copiar, o la linia fins a \n inclos
