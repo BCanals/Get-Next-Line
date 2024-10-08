@@ -6,7 +6,7 @@
 /*   By: bcanals- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 16:22:49 by bcanals-          #+#    #+#             */
-/*   Updated: 2024/10/03 19:00:01 by bizcru           ###   ########.fr       */
+/*   Updated: 2024/10/08 17:16:44 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,13 @@
 #include <fcntl.h>
 #include <stdio.h>
 #include "get_next_line.h"
+
+char	*ft_free(char **str)
+{
+	free(*str);
+	*str = NULL;
+	return (NULL);
+}
 
 char	*ft_next(char *buffer, char *line)
 {
@@ -27,12 +34,11 @@ char	*ft_next(char *buffer, char *line)
 	new_buffer = ft_calloc(buf_len + 1);
 	if (!new_buffer)
 	{
-		free(buffer);
-		free(line);
-		return (NULL);
+		ft_free(&buffer);
+		return (ft_free(&line));
 	}
 	new_buffer = ft_memcpy(new_buffer, buffer + line_len, buf_len);
-	free(buffer);
+	ft_free(&buffer);
 	return (new_buffer);
 }
 
@@ -48,7 +54,7 @@ char	*ft_line(char *buffer)
 		i++;
 	line = ft_calloc(i + 1);
 	if (!line)
-		return (NULL);
+		return (ft_free(&line));
 	ft_memcpy(line, buffer, i);
 	return (line);
 }
@@ -66,13 +72,12 @@ char	*ft_read(int fd, char *buffer)
 		read_bytes = read(fd, reading, BUFFER_SIZE);
 		if (read_bytes < 0)
 		{
-			free(buffer);
-			free(reading);
-			return (NULL);
+			ft_free(&buffer);
+			return (ft_free(&reading));
 		}
 		else if (read_bytes == 0)
 		{
-			free(reading);
+			ft_free(&reading);
 			return (buffer);
 		}
 		buffer = ft_strjoin(buffer, reading);
@@ -95,9 +100,7 @@ char	*get_next_line(int fd)
 	if (!buffer)
 		return (NULL);
 	if (!*buffer)
-	{
-		return (NULL);
-	}
+		return (ft_free(&buffer));
 	line = ft_line(buffer);
 	if (!line)
 		return (NULL);

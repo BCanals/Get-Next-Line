@@ -6,7 +6,7 @@
 /*   By: bizcru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 21:18:09 by bizcru            #+#    #+#             */
-/*   Updated: 2024/10/08 17:26:06 by bizcru           ###   ########.fr       */
+/*   Updated: 2024/10/08 00:24:09 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	free(s1);
 	s1 = NULL;
 	free(s2);
-	s2 = NULL;
+	s1 = NULL;
 	return (rtrn);
 }
 
