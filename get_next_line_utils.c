@@ -6,12 +6,13 @@
 /*   By: bizcru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 21:18:09 by bizcru            #+#    #+#             */
-/*   Updated: 2024/10/08 17:26:06 by bizcru           ###   ########.fr       */
+/*   Updated: 2024/10/08 18:26:49 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stddef.h>
+#include "get_next_line.h"
 
 void	*ft_memcpy(char *dest, char *src, size_t n)
 {
