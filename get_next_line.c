@@ -6,14 +6,12 @@
 /*   By: bcanals- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 16:22:49 by bcanals-          #+#    #+#             */
-/*   Updated: 2024/10/08 17:16:44 by bizcru           ###   ########.fr       */
+/*   Updated: 2024/10/08 18:23:02 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
-#include <fcntl.h>
-#include <stdio.h>
 #include "get_next_line.h"
 
 char	*ft_free(char **str)
@@ -33,10 +31,7 @@ char	*ft_next(char *buffer, char *line)
 	buf_len = ft_strlen(buffer) - line_len;
 	new_buffer = ft_calloc(buf_len + 1);
 	if (!new_buffer)
-	{
-		ft_free(&buffer);
-		return (ft_free(&line));
-	}
+		return (ft_free(&line), ft_free(&buffer));
 	new_buffer = ft_memcpy(new_buffer, buffer + line_len, buf_len);
 	ft_free(&buffer);
 	return (new_buffer);
@@ -71,10 +66,7 @@ char	*ft_read(int fd, char *buffer)
 			return (NULL);
 		read_bytes = read(fd, reading, BUFFER_SIZE);
 		if (read_bytes < 0)
-		{
-			ft_free(&buffer);
-			return (ft_free(&reading));
-		}
+			return (ft_free(&reading), ft_free(&buffer));
 		else if (read_bytes == 0)
 		{
 			ft_free(&reading);
@@ -91,11 +83,15 @@ char	*get_next_line(int fd)
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
+	{
+		if (buffer)
+			ft_free(&buffer);
 		return (NULL);
+	}
 	if (!buffer)
 		buffer = ft_calloc(1);
 	if (!buffer)
-		return (NULL);
+		return (ft_free(&buffer));
 	buffer = ft_read(fd, buffer);
 	if (!buffer)
 		return (NULL);
@@ -103,9 +99,9 @@ char	*get_next_line(int fd)
 		return (ft_free(&buffer));
 	line = ft_line(buffer);
 	if (!line)
-		return (NULL);
+		return (ft_free(&buffer), ft_free(&line));
 	buffer = ft_next(buffer, line);
 	if (!buffer)
-		return (NULL);
+		return (ft_free(&buffer));
 	return (line);
 }

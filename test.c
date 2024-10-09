@@ -6,7 +6,7 @@
 /*   By: bizcru <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/20 22:37:40 by bizcru            #+#    #+#             */
-/*   Updated: 2024/09/24 14:59:30 by bcanals-         ###   ########.fr       */
+/*   Updated: 2024/10/08 18:25:32 by bizcru           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
-#include <fcntl.h>
 
 int	main(int argc, char **argv)
 {
